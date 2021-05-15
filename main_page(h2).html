@@ -15,10 +15,12 @@
         <p>&nbsp;</p>
         <script>
             try {
-                var num = Math.floor(Math.random() * 10);
+                var num = Math.floor(Math.random() * 22);
                 console.log("Variable num now contains the randomized number: " + num);
                 var distro = "dummy data";
-                console.log("Created variable distro containing nothing")
+                console.log("Created variable distro containing nothing");
+                var bool_hasErrorOccurred = 0;
+                console.log("Prepared exception detector variable");
                 switch (num) {
                     case 0:
                         distro = "Debian Linux!";
@@ -50,14 +52,55 @@
                     case 9:
                         distro = "Ubuntu Linux!";
                     break;
+                    case 10:
+                        distro = "ElmentaryOS!";
+                    break;
+                    case 11:
+                        distro = "Pop_OS!";
+                    break;
+                    case 12:
+                        distro = "Hannah Montana Linux";
+                    break;
+                    case 13:
+                        distro = "Justin Bieber Linux!";
+                    break;
+                    case 14:
+                        distro = "ZorinOS!";
+                    break;
+                    case 15:
+                        distro = "OpenSUSE Linux!";
+                    break;
+                    case 16:
+                        distro = "Fedora Linux!";
+                    break;
+                    case 17:
+                        distro = "Solus Linux!";
+                    break;
+                    case 18:
+                        distro = "Solaris Linux!";
+                    break;
+                    case 19:
+                        distro = "ChromiumOS/ChromeOS!";
+                    break;
+                    case 20:
+                        distro = "Redhat Linux!";
+                    break;
+                    case 21:
+                        distro = "CentOS!";
+                    break;
                     default:
                         console.log("Randomized number was out of the switch function bounds");
-                        document.Write("An error has occurred while processing request! (code 2)");
-                        while (true) {/*This loop is used to stop the site from printing "Install dummy data"*/}
+                        document.write("An error has occurred while processing request! (code 2)");
+                        bool_hasErrorOccurred = 1;
                     break;
                 }
-                console.log("distro Variable now has gotten the value \"" + distro + "\"");
-                document.write("<h3>Install " + distro + "</h3>");
+                if (bool_hasErrorOccurred != 1) {
+                    console.log("distro Variable now has gotten the value \"" + distro + "\"");
+                    document.write("<h3>Install " + distro + "</h3>");
+                }
+                else {
+                    console.log("Skipped assigning value to distro variable due to error 2.");
+                }
             }
             catch {
                 console.log("An unknown error has occurred, perhaps failed to randomize number?");
